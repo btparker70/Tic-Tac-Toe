@@ -1,0 +1,35 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+}
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+}
+.block {
+    display: flex;
+    height: 10vh;
+    width: 33%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#block_1, #block_2, #block_3 {
+    border-bottom: 5px solid black;
+}
+#block_4, #block_5, #block_6 {
+    border-bottom: 5px solid black;
+}
+
+#block_1, #block_4, #block_7 {
+    border-right: 5px solid black;
+}
+
+#block_2, #block_5, #block_8 {
+    border-right: 5px solid black;
+}
