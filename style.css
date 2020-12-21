@@ -7,13 +7,15 @@
     background: #eee;
 }
 .game-board {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: auto auto auto;
 }
 .block {
     display: flex;
-    height: 10vh;
-    width: 33%;
+    height: 100px;
+    width: 100px;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -32,4 +34,26 @@
 
 #block_2, #block_5, #block_8 {
     border-right: 5px solid black;
+}
+
+.fa-minus {
+    height: 10px;
+    background: red;
+    position: absolute;
+    width: 105px;
+    z-index: 1000;
+}
+
+.vertical {
+    transform: rotate(90deg);
+}
+
+.diagonal-left {
+    transform: rotate(45deg);
+    width: 150px;
+}
+
+.diagonal-right {
+    transform: rotate(-45deg);
+    width: 150px;
 }
