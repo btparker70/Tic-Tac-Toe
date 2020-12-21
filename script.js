@@ -16,6 +16,7 @@ $('.game-board').on('click', '.block', function () {
 // Clear board
 $('#new-game').on('click', function () {
     $('.block').empty();
+    currentGameWon = false;
 })
 
 // CPU move
