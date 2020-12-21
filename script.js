@@ -1,9 +1,15 @@
+// Variables
+let currentGameWon = false;
+
 // Player move
 $('.game-board').on('click', '.block', function () {
-    if ($(this).find('i').length == 0) {
-        $(this).prepend('<i class="fas fa-times fa-5x"></i>').attr('marker', 'x');
-        cpuMove();
-        winChecker();
+    while (currentGameWon === false) {
+        if ($(this).find('i').length == 0) {
+            $(this).prepend('<i class="fas fa-times fa-5x"></i>').attr('marker', 'x');
+            cpuMove();
+            winChecker();
+        }
+        break;
     }
 })
 
@@ -14,6 +20,7 @@ $('#new-game').on('click', function () {
 
 // CPU move
 function cpuMove() {
+    while (currentGameWon === false) {
     for (i = 1; i < 10; i++) {
         let randomNum = Math.floor(Math.random() * 9) + 1;
         if ($(`#block_${randomNum}`).find('i').length == 0) {
@@ -21,6 +28,8 @@ function cpuMove() {
             break;
         }
     }
+    break;
+}
 }
 
 // Win line
@@ -28,24 +37,28 @@ function strikeMakerHorizontal(num1, num2, num3) {
     $(`#block_${num1}`).prepend('<i class="fas fa-minus"></i>');
     $(`#block_${num2}`).prepend('<i class="fas fa-minus"></i>');
     $(`#block_${num3}`).prepend('<i class="fas fa-minus"></i>');
+    currentGameWon = true;
 }
 
 function strikeMakerVertical(num1, num2, num3) {
     $(`#block_${num1}`).prepend('<i class="fas fa-minus vertical"></i>');
     $(`#block_${num2}`).prepend('<i class="fas fa-minus vertical"></i>');
     $(`#block_${num3}`).prepend('<i class="fas fa-minus vertical"></i>');
+    currentGameWon = true;
 }
 
 function strikeMakerDiagonalLeft(num1, num2, num3) {
     $(`#block_${num1}`).prepend('<i class="fas fa-minus diagonal-left"></i>');
     $(`#block_${num2}`).prepend('<i class="fas fa-minus diagonal-left"></i>');
     $(`#block_${num3}`).prepend('<i class="fas fa-minus diagonal-left"></i>');
+    currentGameWon = true;
 }
 
 function strikeMakerDiagonalRight(num1, num2, num3) {
     $(`#block_${num1}`).prepend('<i class="fas fa-minus diagonal-right"></i>');
     $(`#block_${num2}`).prepend('<i class="fas fa-minus diagonal-right"></i>');
     $(`#block_${num3}`).prepend('<i class="fas fa-minus diagonal-right"></i>');
+    currentGameWon = true;
 }
 
 // Win checker
@@ -77,7 +90,7 @@ function winChecker() {
     }
 
     // Diagonal
-     if (markers[0] + markers[4] + markers[8] === 'xxx' || markers[0] + markers[4] + markers[8] === 'ooo') {
+    if (markers[0] + markers[4] + markers[8] === 'xxx' || markers[0] + markers[4] + markers[8] === 'ooo') {
         strikeMakerDiagonalLeft(1, 5, 9);
     }
     if (markers[2] + markers[4] + markers[6] === 'xxx' || markers[2] + markers[4] + markers[6] === 'ooo') {
