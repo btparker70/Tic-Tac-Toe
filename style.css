@@ -43,17 +43,29 @@
     width: 105px;
     z-index: 1000;
 }
+.fa-minus:before {
+    content: none;
+}
 
 .vertical {
     transform: rotate(90deg);
+}
+.vertical:before {
+    content: none;
 }
 
 .diagonal-left {
     transform: rotate(45deg);
     width: 150px;
 }
+.diagonal-left:before {
+    content: none;
+}
 
 .diagonal-right {
     transform: rotate(-45deg);
     width: 150px;
+}
+.diagonal-right:before {
+    content: none;
 }
